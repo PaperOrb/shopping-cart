@@ -1,25 +1,76 @@
 :root {
-
+  --primary-color: rgba(47, 48, 58, 0.644);
+  --text-color: rgb(0, 0, 0);
 }
 
 * {
   padding: 0;
   margin: 0;
+  color: var(--text-color);
+  box-sizing: border-box;
 }
 
 html, body {
-  width: 100vw;
+  max-width: 100vw;
   min-height: 100%;
-  background-color: red;
-}
-
-.nav {
-  height: 12vh;
-  width: 100%;
-  background-color: blue;
+  background-color: white;
 }
 
 .home {
-  height: 90vh;
+  background: url("../images/home.jpg") center no-repeat;
+  background-size:cover;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 12vh;
+  max-width: 100%;
+  font-weight: 600;
+  background: white;
+}
+
+.nav__right-wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 100px;
+}
+
+.shop-btn {
+  margin-right: 50px;
+}
+
+.home-btn {
+  margin-left: 100px;
+}
+
+.cart-btn {
+  margin-right: 50px;
+}
+
+.nav-btn {
+  transition: all 250ms;
+}
+
+.nav-btn:hover {
+  transform: scale(120%);
+  cursor: pointer;
+}
+
+.home {
+  height: 88vh;
   width: 100%;
+}
+
+.cart {
+  background: blue;
+}
+
+.shop {
+  background: blue;
+}
+
+.github-icon {
+  font-size: 1.5rem;
 }

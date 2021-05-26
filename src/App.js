@@ -5,13 +5,14 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+
 const App = () => {
   return (
     <div>
-      <NavBar />
       <BrowserRouter>
+        <NavBar />
         <Switch>
-          <Route path="/shop" component={Shop} />
+          <Route exact path="/shop" component={Shop} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/" component={Home} />
         </Switch>
