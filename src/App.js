@@ -5,6 +5,7 @@ import Item from "./components/Item";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 const App = () => {
   const products = useState([
     { img: "../images/1.jpg", name: "PC Case", price: "$5.99" },
@@ -29,7 +30,7 @@ const App = () => {
           <Route exact path="/item" component={Item} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/" component={Home} />
-          <Route exact path="/Shop" render={(props) => <Shop {...props} products={products} />} />
+          <Route exact path="/shop" render={(props) => <Shop {...props} products={products} />} />
         </Switch>
       </BrowserRouter>
     </div>
