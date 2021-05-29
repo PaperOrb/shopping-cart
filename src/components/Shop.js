@@ -2,10 +2,16 @@ import ProductCard from "../components/ProductCard";
 
 const Shop = ({ products }) => {
   let productCards = () => {
-    return products[0].map((item, index) => {
-      return <ProductCard key={index} image={item.img} price={item.price} name={item.name} />;
+    let prodKeys = Object.keys(products);
+    return prodKeys.map((key) => {
+      return (
+        <div className="productcard">
+          <ProductCard key={key} item={products[key]} />
+        </div>
+      );
     });
   };
+
   return <div className="shop">{productCards()}</div>;
 };
 

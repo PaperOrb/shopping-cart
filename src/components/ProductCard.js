@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ProdContext, CartContext } from "../App";
 
-const ProductCard = ({ image, price, name }) => {
+const ProductCard = ({ item }) => {
+  const { setProd } = useContext(ProdContext);
+  const { cart } = useContext(CartContext);
+
+  let handleClick = () => {
+    let correctItem = item.id in cart ? cart[item.id] : item;
+    setProd(correctItem);
+  };
   return (
-    <Link
-      className="productcard"
-      to={{
-        pathname: "/item",
-        state: {
-          name: name,
-          image: image,
-          price: price,
-        },
-      }}
-    >
-      <img alt="PC Case" src={image} className="product-image"></img>
-      <div>{name}</div>
-      <div>{price}</div>
-    </Link>
+
+      <Link className="card-link" onClick={handleClick} to={`/item/${item.id}`}>
+        <img alt="PC Case" src={item.img} className="product-image"></img>
+        <div>{item.name}</div>
+        <div>{item.price}</div>
+      </Link>
   );
 };
 export default ProductCard;
