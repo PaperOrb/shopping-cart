@@ -9,7 +9,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 const App = () => {
   const [cart, setCart] = useState({});
   const [currentProd, setCurrentProd] = useState({});
-  const [products, setProducts] = useState({
+  const [products] = useState({
     1: { img: "../images/1.jpg", name: "PC Case", price: "$5.99", qty: 0, id: 1 },
     2: { img: "../images/2.jpg", name: "PC Case", price: "$5.99", qty: 0, id: 2 },
     3: { img: "../images/3.jpg", name: "PC Case", price: "$5.99", qty: 0, id: 3 },
@@ -27,28 +27,14 @@ const App = () => {
   useEffect(() => {
     setCart((prevCart) => {
       let copy = { ...prevCart };
-      copy[currentProd.id] = currentProd
+      copy[currentProd.id] = currentProd;
       return copy;
     });
   }, [currentProd]);
 
-  let updateCart = () => {
-    // let currentItemCartIndex = cart.findIndex((cartItem) => {
-    //   return cartItem.image === item.image;
-    // });
-    // if (currentItemCartIndex > -1) {
-    //   setCart((prevCart) => {
-    //     prevCart[currentItemCartIndex].qty = item.qty;
-    //     console.log(prevCart);
-    //     return [...prevCart];
-    //   });
-    // } else {
-    // }
-  };
-
   return (
     <div>
-      <CartContext.Provider value={{ updateCart: updateCart, cart: cart }}>
+      <CartContext.Provider value={{ cart: cart }}>
         <ProdContext.Provider value={{ currentProd: currentProd, setProd: setCurrentProd }}>
           <BrowserRouter>
             <NavBar />
