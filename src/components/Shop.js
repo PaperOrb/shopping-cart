@@ -5,8 +5,8 @@ const Shop = ({ products }) => {
     let prodKeys = Object.keys(products);
     return prodKeys.map((key) => {
       return (
-        <div className="productcard">
-          <ProductCard key={key} item={products[key]} />
+        <div key={key} className="productcard">
+          <ProductCard item={products[key]} />
         </div>
       );
     });

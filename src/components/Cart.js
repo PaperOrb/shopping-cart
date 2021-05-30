@@ -1,5 +1,6 @@
 import ItemQty from "./ItemQty";
 import ProductCard from "./ProductCard";
+import OrderDetails from "./OrderDetails";
 import { useContext } from "react";
 import { CartContext } from "../App";
 
@@ -8,20 +9,24 @@ const Cart = () => {
 
   let cartItems = () => {
     let cartKeys = Object.keys(cart);
-    cartKeys = cartKeys.filter((key) => !(key === "undefined"));
     let item;
 
     return cartKeys.map((key) => {
       item = cart[key];
-      console.log(cartKeys);
       return (
-        <div className="productcard">
-          <ProductCard key={key} item={item} />
+        <div key={key} className="productcard">
+          <ProductCard item={item} />
           <ItemQty item={item} addBtnVisibility={"hide-add-to-cart"} />
         </div>
       );
     });
   };
-  return <div className="cart">{cartItems()}</div>;
+  return (
+    <div className="cart-page">
+      <div></div>
+      <div className="cart">{cartItems()}</div>
+      <OrderDetails />
+    </div>
+  );
 };
 export default Cart;

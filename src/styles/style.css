@@ -1,6 +1,8 @@
 :root {
   --primary-color: rgba(47, 48, 58, 0.644);
   --text-color: rgb(0, 0, 0);
+  --shadow: rgba(0, 0, 0, 0.19) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
+
 }
 
 * {
@@ -73,10 +75,27 @@ main {
   justify-content: center;
   gap: 3rem;
   grid-template: .5fr / .5fr;
-  width: 60vw;
-  margin: 2% 0;
+  width: 55vw;
 }
 
+.cart-page {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr;
+  justify-content: center;
+  width: 100%;
+  padding: 2% 0;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  height: 60vh;
+  margin-right: 4em;
+  box-shadow: var(--shadow);;
+  padding: 1em;
+}
 
 .github-icon {
   font-size: 2rem;
@@ -97,7 +116,7 @@ main {
   display: flex;
   align-items: center;
   position: relative;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
+  box-shadow: var(--shadow);
   border: none;
   background-color: white;
   font-size: 1.4rem;
@@ -155,7 +174,7 @@ main {
 .item-image {
   height: 100%;
   width: 150%;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
+  box-shadow: var(--shadow);
 }
 
 .item-quantity-btn {
@@ -183,7 +202,7 @@ main {
   background: white;
   margin-top: .3em;
   padding: 1em;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
+  box-shadow: var(--shadow);
 }
 
 .hide-add-to-cart {
@@ -195,7 +214,7 @@ main {
   margin-top: .5rem;
   width: 10rem;
   padding: .8rem;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
+  box-shadow: var(--shadow);
 }
 
 .add-to-cart:hover {
